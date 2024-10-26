@@ -5,6 +5,15 @@ import Button from "@/assets/components/Button";
 import { Download } from "lucide-react";
 
 const Home = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/cv.pdf";
+    link.download = "hasan-ragab.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       id="home"
@@ -20,7 +29,7 @@ const Home = () => {
           </p>
           <div className="flex gap-6">
             <Button>Hire Me</Button>
-            <Button color="secondary">
+            <Button onClick={handleDownload} color="secondary">
               Download CV <Download />
             </Button>
           </div>
